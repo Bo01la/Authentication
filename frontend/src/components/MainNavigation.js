@@ -1,7 +1,7 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
-import classes from './MainNavigation.module.css';
-import NewsletterSignup from './NewsletterSignup';
+import classes from "./MainNavigation.module.css";
+import NewsletterSignup from "./NewsletterSignup";
 
 function MainNavigation() {
   return (
@@ -37,6 +37,17 @@ function MainNavigation() {
               }
             >
               Newsletter
+            </NavLink>
+          </li>
+          <li>
+            {/*we initiallt set the "mode=logIn" in the nav bar */}
+            <NavLink
+              to="/auth?mode=logIn"
+              className={({ isActive }) =>
+                isActive ? classes.active : undefined
+              }
+            >
+              Authentication
             </NavLink>
           </li>
         </ul>
