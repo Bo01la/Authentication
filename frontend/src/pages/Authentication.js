@@ -44,6 +44,12 @@ export async function action({ request }) {
     return response; // to be used in form validation
   }
 
-  // soon will manage the authentication token...
+  // getting the token then adding it to local storage
+  // 1- we make the response a readable object using .json()
+  // 2- we extract the token with dot notation
+  // 3- saving the token to local storage
+  const resData = await response.json();
+  const token = resData.token;
+  localStorage.setItem("token", token);
   return redirect("/");
 }
