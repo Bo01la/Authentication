@@ -14,6 +14,7 @@ import RootLayout from "./pages/Root";
 import { action as manipulateEventAction } from "./components/EventForm";
 import NewsletterPage, { action as newsletterAction } from "./pages/Newsletter";
 import Authentication, { action as authAction } from "./pages/Authentication";
+import { action as logOutAction } from "./pages/LogOut";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,12 @@ const router = createBrowserRouter([
         path: "auth",
         element: <Authentication />,
         action: authAction,
+      },
+      
+      // some other routes..
+      {
+        path: "logOut",
+        action: logOutAction,
       },
     ],
   },
