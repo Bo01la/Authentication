@@ -15,12 +15,15 @@ import { action as manipulateEventAction } from "./components/EventForm";
 import NewsletterPage, { action as newsletterAction } from "./pages/Newsletter";
 import Authentication, { action as authAction } from "./pages/Authentication";
 import { action as logOutAction } from "./pages/LogOut";
+import { checkToken } from "./util/authToken";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
     errorElement: <ErrorPage />,
+    id: "dataId", // id to be assigned to useRouteLoaderData()
+    loader: checkToken, // to check if we have token or not
     children: [
       { index: true, element: <HomePage /> },
       {
@@ -66,8 +69,6 @@ const router = createBrowserRouter([
         element: <Authentication />,
         action: authAction,
       },
-      
-      // some other routes..
       {
         path: "logOut",
         action: logOutAction,
